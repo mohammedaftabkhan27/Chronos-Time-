@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos | Live Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="clock-card">
+        <header class="top-bar">
+            <div class="brand">
+                <div class="brand-icon">◷</div>
+                <span>CHRONOS</span>
+            </div>
+
+            <div class="live-status">
+                <span class="live-dot"></span>
+                LIVE
+            </div>
+        </header>
+
+        <section class="clock-content">
+            <p class="greeting" id="greeting">YOUR TIME, RIGHT NOW</p>
+
+            <div class="time-display">
+                <span id="hours">00</span>
+                <span class="colon">:</span>
+                <span id="minutes">00</span>
+                <span class="seconds" id="seconds">00</span>
+            </div>
+
+            <div class="time-details">
+                <span id="period">AM</span>
+                <span class="separator">/</span>
+                <span id="timezone">LOCAL TIME</span>
+            </div>
+
+            <div class="date-panel">
+                <div class="calendar-icon">▦</div>
+
+                <div class="date-info">
+                    <p id="weekday">Monday</p>
+                    <h2 id="full-date">January 01, 2026</h2>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bottom-bar">
+            <span>PRECISION IN EVERY SECOND</span>
+            <span class="year-label">EST. 2026</span>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

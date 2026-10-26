@@ -1,0 +1,276 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700&display=swap');
+
+:root {
+    --bg: #080d18;
+    --card: #111a2b;
+    --blue: #58a6ff;
+    --cyan: #55e6ff;
+    --white: #f4f7ff;
+    --muted: #8492a9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    font-family: 'Inter', sans-serif;
+    color: var(--white);
+    background:
+        radial-gradient(ellipse at 15% 15%, #142c4d 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 85%, #102e3d 0%, transparent 40%),
+        var(--bg);
+}
+
+.clock-card {
+    width: 100%;
+    max-width: 650px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(
+        145deg,
+        rgba(24, 37, 59, 0.96),
+        rgba(12, 20, 35, 0.98)
+    );
+    border: 1px solid rgba(120, 170, 230, 0.2);
+    border-radius: 26px;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.top-bar,
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 32px;
+}
+
+.top-bar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    color: var(--cyan);
+    font-size: 27px;
+    border: 1px solid rgba(85, 230, 255, 0.3);
+    border-radius: 12px;
+    background: rgba(85, 230, 255, 0.07);
+}
+
+.live-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 12px;
+    color: #7cf5bd;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(124, 245, 189, 0.15);
+    border-radius: 30px;
+    background: rgba(124, 245, 189, 0.06);
+}
+
+.live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #7cf5bd;
+    box-shadow: 0 0 12px #7cf5bd;
+    animation: pulse 1.5s infinite;
+}
+
+.clock-content {
+    padding: 48px 32px 38px;
+    text-align: center;
+}
+
+.greeting {
+    margin-bottom: 25px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+.time-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(44px, 10vw, 82px);
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.time-display > span:not(.colon):not(.seconds) {
+    color: var(--white);
+}
+
+.colon {
+    color: var(--cyan);
+    animation: blink 1s steps(2, start) infinite;
+}
+
+.seconds {
+    align-self: center;
+    margin-top: 15px;
+    color: var(--cyan);
+    font-size: clamp(19px, 4vw, 30px);
+    letter-spacing: 0;
+}
+
+.time-details {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+#period {
+    color: var(--cyan);
+}
+
+.separator {
+    padding: 0 9px;
+    color: #40516a;
+}
+
+.date-panel {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    max-width: 360px;
+    margin: 42px auto 0;
+    padding: 19px 22px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 17px;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.date-panel:hover {
+    border-color: rgba(85, 230, 255, 0.35);
+    transform: translateY(-3px);
+}
+
+.calendar-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    color: var(--cyan);
+    font-size: 25px;
+    background: rgba(85, 230, 255, 0.08);
+    border-radius: 13px;
+}
+
+.date-info p {
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.date-info h2 {
+    font-size: clamp(15px, 3.5vw, 19px);
+    font-weight: 600;
+}
+
+.bottom-bar {
+    padding-top: 19px;
+    padding-bottom: 19px;
+    color: #65758e;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.year-label {
+    color: var(--blue);
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.4;
+        box-shadow: 0 0 3px #7cf5bd;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.25;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 14px;
+    }
+
+    .top-bar,
+    .bottom-bar {
+        padding: 19px;
+    }
+
+    .clock-content {
+        padding: 38px 15px 30px;
+    }
+
+    .brand {
+        gap: 8px;
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .greeting {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+    }
+
+    .time-display {
+        gap: 3px;
+    }
+
+    .date-panel {
+        margin-top: 32px;
+        padding: 16px;
+    }
+
+    .bottom-bar {
+        font-size: 8px;
+        letter-spacing: 0.8px;
+    }
+}
